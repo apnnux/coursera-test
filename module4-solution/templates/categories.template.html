@@ -1,0 +1,13 @@
+<style>
+    li[ui-sref]:hover {
+    display: inline-block;
+    cursor: pointer;
+    border: solid black 1px;
+    padding-right: 5px;
+}
+</style>
+
+<ul>
+    <li ng-repeat="item in categories.items"
+        ui-sref="items({ itemCat: item.short_name })" ui-sref-active="active">[{{item.short_name}}] - {{item.name}}</li>
+</ul>
