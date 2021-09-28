@@ -1,0 +1,65 @@
+<form name="singUpForm" style="color: black; background-color: white; padding: 10px; border: 2px solid black; text-align: center;">
+    <label>Name: <input
+            required
+            name="name"
+            ng-model="singup.user.name"
+            minlength="2"
+            placeholder="name"
+            type="text">
+    </label>
+    <span
+            ng-if="(singUpForm.name.$error.minlength || singUpForm.name.$error.required) && singUpForm.name.$touched">
+            Name must be at least 4 characters long
+          </span>
+          <span ng-if="singUpForm.name.$error.maxlength && singUpForm.name.$touched">
+            Name must not be longer than 10 characters
+          </span>
+    <br>
+    <label>Surname: <input
+        required
+        name="surname"
+        ng-model="singup.user.surname"
+        minlength="2"
+        placeholder="surname"
+        type="text">
+    </label>
+    <span
+            ng-if="(singUpForm.surname.$error.minlength || singUpForm.surname.$error.required) && singUpForm.surname.$touched">
+            Surname must be at least 4 characters long
+          </span>
+          <span ng-if="singUpForm.surname.$error.maxlength && singUpForm.surname.$touched">
+            Surname must not be longer than 10 characters
+          </span>
+    <br>
+    <label>Email: <input
+        required
+        name="email"
+        ng-model="singup.user.email"
+        placeholder="email"
+        type="email">
+        
+    </label>
+    <span ng-if="singUpForm.email.$invalid && singUpForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+    <br>
+    <label>Phone: <input
+        required
+        name="phone"
+        ng-model="singup.user.phone"
+        placeholder="phone ###-###-####"
+        type="text"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+    </label>
+    <span ng-if="singUpForm.phone.$invalid && singUpForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+    </span>
+    <br>
+    <label>Whats your favorite menu number? <input type="text" name="short_name" ng-model="singup.user.short_name" required></label>
+    <span ng-if="singup.errorMenu">Your menu items doesn't exist</span>
+    <br>
+    <button ng-disabled="singUpForm.$invalid" ng-click="singup.submit()">Sing Up</button>
+    
+</form>
+<h1 ng-if="singup.finish" style="text-align: center;">DATA SAVED</h1>
+

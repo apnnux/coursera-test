@@ -1,0 +1,15 @@
+<div ng-if="info.size > 0" style="text-align: center;">
+    <h3>Name: {{info.user.name}}</h3>
+    <br>
+    <h3>Surname: {{info.user.surname}}</h3>
+    <br>
+    <h3>Email: {{info.user.email}}</h3>
+    <br>
+    <h3>Phone: {{info.user.phone}}</h3>
+    <br>
+    <menu-item ng-if="info.menuItem != null" menu-item="info.menuItem">
+  </menu-item>
+</div>
+<div ng-if="info.size <= 0" style="text-align: center;">
+    Not register? <a ui-sref="public.singup" ui-sref-active="active">Sing Up now</a>
+</div>
